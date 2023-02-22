@@ -24,10 +24,10 @@ body {
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 200px; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
     z-index: 0; /* Stay on top */
-    top: 60px; /* Stay at the top */
-    left: 0;
+    position: fixed;
+    top: 57px; /* Stay at the top */
+    left: 0px;
     background-color: #d3d3d3;
     padding-top: 10px; /* Place content 60px from the top */
 }
