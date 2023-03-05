@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Preparation";
+
+    List<SelectListItem> options = new List<SelectListItem>();
+    options.Add(new SelectListItem
+        {
+            Text = "option1",
+            Value = "opt1"
+        });
+    options.Add(new SelectListItem
+        {
+            Text = "option2",
+            Value = "opt2",
+            Selected = true
+        });
+    options.Add(new SelectListItem
+        {
+            Text = "option3",
+            Value = "opt3"
+        });
+}
+
+<div class="text-center">
+    <h1 class="display-4">Information Input</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Energy storage type</h5>
+                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Application area</h5>
+                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Current infrastructure</h5>
+                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Discharge data required?</h5>
+                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

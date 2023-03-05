@@ -22,12 +22,12 @@ body {
 }
 
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 200px; /* 0 width - change this with JavaScript */
-    z-index: 0; /* Stay on top */
+    height: 100%;
+    width: 275px;
+    z-index: 0;
     position: fixed;
-    top: 57px; /* Stay at the top */
+    top: 57px;
     left: 0px;
     background-color: #d3d3d3;
-    padding-top: 10px; /* Place content 60px from the top */
+    padding-top: 10px;
 }
