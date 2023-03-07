@@ -20,7 +20,28 @@ public class HomeController : Controller
 
     public IActionResult Dashboard()
     {
-        return View();
+        //Waiting for the database to be connected.
+        List<RowItem1Model> items = new List<RowItem1Model>
+        {
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test"),
+            new RowItem1Model("test")
+        };
+        return View(items);
+        //return View();
     }
 
     public IActionResult Preparation()

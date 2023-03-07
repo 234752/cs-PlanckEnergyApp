@@ -1,31 +1,88 @@
-﻿@{
+﻿@model List<PlanckEnergyMVC.Models.RowItem1Model>
+
+@{
     ViewData["Title"] = "Dashboard";
+
+    List<SelectListItem> options = new List<SelectListItem>();
+    options.Add(new SelectListItem
+            {
+                Text = "option1",
+                Value = "opt1"
+            });
+    options.Add(new SelectListItem
+            {
+                Text = "option2",
+                Value = "opt2",
+                Selected = true
+            });
+    options.Add(new SelectListItem
+            {
+                Text = "option3",
+                Value = "opt3"
+            });
 }
 
-<div class="row">
+<style>
 
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Energy storage type</h5>
+    li:nth-child(even) {
+        background: #ccc;
+    }
+
+</style>
+
+<div class="container text-center">
+
+    <div class="row m-auto">
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">No. of projects so far</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
             </div>
         </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">MW systems designed</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Standardized materials</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Distributed today</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Energy storage type</h5>
-            </div>
-        </div>
-    </div>
+    <div style="border: 1px solid #000; height: 150px; width: 30%; margin-top: 5%">
 
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Energy storage type</h5>
-            </div>
-        </div>
+        <ul style="list-style:none; height:150px; max-height:150px; margin:0; overflow:auto; padding:0;">
+            @foreach (var item in Model)
+            {
+                <li style="text-align:left">
+                    @item.Description;
+                </li>
+            }
+        </ul>
+
     </div>
 
 </div>
