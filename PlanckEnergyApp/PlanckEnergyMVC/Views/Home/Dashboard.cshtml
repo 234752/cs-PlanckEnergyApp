@@ -20,6 +20,14 @@
         background-color: blue;
     }
 
+    .dot {
+        height: 12px;
+        width: 12px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
 </style>
 
 <div class="container text-center">
@@ -70,15 +78,17 @@
             @foreach (var item in Model)
             {
                 <li style="text-align:left">
-                    @item.Description;
+                    @item.Description
                 </li>
             }
         </ul>
 
     </div>
 
-    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto">
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; float:left;">
+
         <table style="height:150px;">
+
             <thead>
 
                 <tr>
@@ -106,6 +116,45 @@
                     </tr>
                 }
 
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; margin-left: 50%">
+
+        <table style="height:150px;">
+
+            <thead>
+                <tr>
+                    <th colspan="2">ES Tech</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    <th>I</th>
+                    <th>J</th>
+                    <th>K</th>
+                    <th>L</th>
+                    <th>M</th>
+                    <th>N</th>
+                    <th>O</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Renewable energy integrations</td>
+                    <td>Time shifting</td>
+                    <td><span class="dot"></span></td>
+                </tr>
+                <tr>
+                    <td>Timing capacity</td>
+                </tr>
             </tbody>
 
         </table>
