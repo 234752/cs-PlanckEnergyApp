@@ -2,30 +2,22 @@
 
 @{
     ViewData["Title"] = "Dashboard";
-
-    List<SelectListItem> options = new List<SelectListItem>();
-    options.Add(new SelectListItem
-            {
-                Text = "option1",
-                Value = "opt1"
-            });
-    options.Add(new SelectListItem
-            {
-                Text = "option2",
-                Value = "opt2",
-                Selected = true
-            });
-    options.Add(new SelectListItem
-            {
-                Text = "option3",
-                Value = "opt3"
-            });
 }
 
 <style>
 
     li:nth-child(even) {
         background: #ccc;
+    }
+
+    table, th, td {
+        border: 1px solid;
+    }
+
+    th {
+        padding: 10px;
+        color: white;
+        background-color: blue;
     }
 
 </style>
@@ -72,7 +64,7 @@
 
     </div>
 
-    <div style="border: 1px solid #000; height: 150px; width: 30%; margin-top: 5%">
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%">
 
         <ul style="list-style:none; height:150px; max-height:150px; margin:0; overflow:auto; padding:0;">
             @foreach (var item in Model)
@@ -82,6 +74,41 @@
                 </li>
             }
         </ul>
+
+    </div>
+
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto">
+        <table style="height:150px;">
+            <thead>
+
+                <tr>
+
+                    <th>Material name</th>
+                    <th>Total volume</th>
+                    <th>Readiness level</th>
+                    <th>Fit for UseCase</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody style="height: 120px">
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Description</td>
+                        <td>@item.Description1</td>
+                        <td>@item.Description2</td>
+                        <td>@item.Description3</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
 
     </div>
 

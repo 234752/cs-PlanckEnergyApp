@@ -23,22 +23,18 @@ public class HomeController : Controller
         //Waiting for the database to be connected.
         List<RowItem1Model> items = new List<RowItem1Model>
         {
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test"),
-            new RowItem1Model("test")
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3")
         };
         return View(items);
         //return View();
