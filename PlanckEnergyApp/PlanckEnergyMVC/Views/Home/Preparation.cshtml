@@ -104,7 +104,12 @@
 
 </div>
 </br>
-<table id="materials-table" class="table" style="margin-left:auto; margin-right:0; width:50%">
+
+<div style="width:45%; float:left">
+    <canvas id="myChart"></canvas>
+</div>
+
+<table id="materials-table" class="table" style="margin-left:auto; margin-right:0; width:45%">
     <thead>
     <tr>
         <th scope="col">Materials</th>
@@ -159,6 +164,34 @@
     </tr>
     </tbody>
 </table>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 
 
 
