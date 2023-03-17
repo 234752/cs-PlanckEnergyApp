@@ -10,10 +10,7 @@ public class MaterialDbContext : DbContext
 
     protected readonly IConfiguration Configuration;
 
-    public MaterialDbContext(IConfiguration configuration)
-    {
-        Configuration = configuration;
-    }
+    public MaterialDbContext(DbContextOptions<MaterialDbContext> options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

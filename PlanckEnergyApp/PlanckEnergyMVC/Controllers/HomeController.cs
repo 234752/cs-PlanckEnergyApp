@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PlanckEnergyMVC.DAL;
 using PlanckEnergyMVC.Models;
 using System.Diagnostics;
 
@@ -7,10 +8,12 @@ namespace PlanckEnergyMVC.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MaterialDbContext _dbContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MaterialDbContext context)
     {
         _logger = logger;
+        _dbContext = context;
     }
 
     public IActionResult Index()
