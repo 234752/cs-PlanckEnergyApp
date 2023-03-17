@@ -23,14 +23,14 @@
 <div class="text-center">
     <h1 class="display-4">Information Input</h1>
 </div>
-
+</br>
 <div class="row">
 
     <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Energy storage type</h5>
-                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+                @Html.DropDownList("fakeDropdown1", options, new { @class = "form-control" })
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Application area</h5>
-                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+                @Html.DropDownList("fakeDropdown2", options, new { @class = "form-control" })
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Current infrastructure</h5>
-                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+                @Html.DropDownList("fakeDropdown3", options, new { @class = "form-control" })
             </div>
         </div>
     </div>
@@ -57,12 +57,117 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Discharge data required?</h5>
-                @Html.DropDownList("fakeDropdown", options, new { @class = "form-control" })
+                @Html.DropDownList("fakeDropdown4", options, new { @class = "form-control" })
             </div>
         </div>
     </div>
 
 </div>
+</br>
+<div class="row">
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Energy storage type</h5>
+                <p class="card-text" style="color:blue; font-size:30px">50 MW</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Application area</h5>
+                <p class="card-text" style="color:blue; font-size:30px">NA</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Current infrastructure</h5>
+                <p class="card-text" style="color:blue; font-size:30px">NA</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Discharge data required?</h5>
+                <p class="card-text" style="color:blue; font-size:30px">Yes/No</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</br>
+
+<div style="width:45%; float:left">
+    <canvas id="myChart"></canvas>
+</div>
+
+<table id="materials-table" class="table" style="margin-left:auto; margin-right:0; width:45%">
+    <thead>
+    <tr>
+        <th scope="col">Materials</th>
+        <th scope="col">Performance</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Sustainability</th>
+        <th scope="col">Challenges</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">material 1</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">material 2</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">material 3</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">material 4</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">material 5</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">material 6</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/ts-compiled/pie-chart.js"></script>
+
 
 
 
