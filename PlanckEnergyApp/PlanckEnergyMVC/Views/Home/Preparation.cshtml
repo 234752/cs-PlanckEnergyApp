@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Material
+
+@{
     ViewData["Title"] = "Preparation";
 
     List<SelectListItem> options = new List<SelectListItem>();
@@ -9,7 +11,7 @@
         });
     options.Add(new SelectListItem
         {
-            Text = "option2",
+            Text = Model.Name,
             Value = "opt2",
             Selected = true
         });

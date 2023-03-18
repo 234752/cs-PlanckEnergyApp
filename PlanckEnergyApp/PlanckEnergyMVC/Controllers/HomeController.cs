@@ -28,7 +28,8 @@ public class HomeController : Controller
 
     public IActionResult Preparation()
     {
-        return View();
+        var mat = _dbContext.Materials.ToList();
+        return View(mat.First());
     }
 
     public IActionResult Privacy()

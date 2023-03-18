@@ -12,8 +12,8 @@ public class MaterialDbContext : DbContext
 
     public MaterialDbContext(DbContextOptions<MaterialDbContext> options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        options.UseSqlServer(Configuration.GetConnectionString("planckDB"));
-    }
+    //protected override void OnConfiguring(DbContextOptionsBuilder options)
+    //{
+    //    options.UseSqlServer(Configuration.GetConnectionString("planckDB"));
+    //}
 }
