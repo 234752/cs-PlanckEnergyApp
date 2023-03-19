@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PlanckEnergyMVC.DataDB;
 using PlanckEnergyMVC.Models;
 using System.Diagnostics;
 
@@ -21,22 +22,10 @@ public class HomeController : Controller
     public IActionResult Dashboard()
     {
         //Waiting for the database to be connected.
-        List<RowItem1Model> items = new List<RowItem1Model>
-        {
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3")
-        };
-        return View(items);
+        TestContext testContext = new TestContext();
+        var materials = testContext.Materials.ToList();
+        materials.Sort((p, q) => q.CellVolume.CompareTo(p.CellVolume));
+        return View(materials);
         //return View();
     }
 

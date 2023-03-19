@@ -1,4 +1,4 @@
-﻿@model List<PlanckEnergyMVC.Models.RowItem1Model>
+﻿@model List<PlanckEnergyMVC.DataDB.Material>
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -78,7 +78,7 @@
             @foreach (var item in Model)
             {
                 <li style="text-align:left">
-                    @item.Description
+                    @item.Name
                 </li>
             }
         </ul>
@@ -114,10 +114,10 @@
                 {
                     <tr>
 
-                        <td>@item.Description</td>
-                        <td>@item.Description1</td>
-                        <td>@item.Description2</td>
-                        <td>@item.Description3</td>
+                        <td>@item.Name</td>
+                        <td>@item.CellVolume</td>
+                        <td>@item.Name</td>
+                        <td>@item.Name</td>
 
                     </tr>
                 }
