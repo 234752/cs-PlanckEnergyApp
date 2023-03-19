@@ -21,12 +21,10 @@ public class HomeController : Controller
 
     public IActionResult Dashboard()
     {
-        //Waiting for the database to be connected.
         TestContext testContext = new TestContext();
         var materials = testContext.Materials.ToList();
         materials.Sort((p, q) => q.CellVolume.CompareTo(p.CellVolume));
         return View(materials);
-        //return View();
     }
 
     public IActionResult Preparation()
