@@ -23,24 +23,9 @@ public class HomeController : Controller
 
     public IActionResult Dashboard()
     {
-        //Waiting for the database to be connected.
-        List<RowItem1Model> items = new List<RowItem1Model>
-        {
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3")
-        };
-        return View(items);
-        //return View();
+
+        var topVolumeMaterials = _dbContext.Materials.OrderByDescending(m => Convert.ToDecimal(m._cell_volume)).Take(10).ToList();
+        return View(topVolumeMaterials);
     }
 
     public IActionResult Preparation()
