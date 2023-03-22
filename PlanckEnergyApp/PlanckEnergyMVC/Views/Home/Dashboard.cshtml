@@ -1,4 +1,4 @@
-﻿@model List<PlanckEnergyMVC.Models.Material>
+﻿@model PlanckEnergyMVC.Models.DashboardModel
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -75,7 +75,7 @@
     <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; float:left">
 
         <ul style="list-style:none; height:150px; max-height:150px; margin:0; overflow:auto; padding:0;">
-            @foreach (var item in Model)
+            @foreach (var item in Model.TopVolumeMaterials)
             {
                 <li style="text-align:left">
                     @item.Name
@@ -111,7 +111,7 @@
 
             <tbody style="height: 120px">
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.TopVolumeMaterials)
                 {
                     <tr>
 

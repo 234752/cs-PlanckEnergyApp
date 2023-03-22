@@ -21,11 +21,11 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Dashboard()
+    public async Task<IActionResult> Dashboard()
     {
-
-        var topVolumeMaterials = _dbContext.Materials.OrderByDescending(m => Convert.ToDecimal(m._cell_volume)).Take(10).ToList();
-        return View(topVolumeMaterials);
+        var dashboardModel = new DashboardModel(_dbContext);
+        await dashboardModel.FetchTopVolumeMaterials();
+        return View(dashboardModel);
     }
 
     public IActionResult Preparation()
