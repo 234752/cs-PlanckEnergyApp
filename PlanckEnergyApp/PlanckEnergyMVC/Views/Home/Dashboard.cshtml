@@ -1,9 +1,177 @@
-﻿@{
+﻿@model List<PlanckEnergyMVC.Models.RowItem1Model>
+
+@{
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Dashboard</h1>
+<style>
+
+    li:nth-child(even) {
+        background: #ccc;
+    }
+
+    table, th, td {
+        border: 1px solid;
+    }
+
+    th {
+        padding: 10px;
+        color: white;
+        background-color: blue;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+</style>
+
+<div class="container text-center">
+
+    <div class="row m-auto">
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">No. of projects so far</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">MW systems designed</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Standardized materials</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Distributed today</h5>
+                    <h5 style="color: lightblue">Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; float:left">
+
+        <ul style="list-style:none; height:150px; max-height:150px; margin:0; overflow:auto; padding:0;">
+            @foreach (var item in Model)
+            {
+                <li style="text-align:left">
+                    @item.Description
+                </li>
+            }
+        </ul>
+
+    </div>
+
+    <div style="width:45%; float:right; margin-right:10%; margin-top:5%">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; float:left;">
+
+        <table style="height:150px;">
+
+            <thead>
+
+                <tr>
+
+                    <th>Material name</th>
+                    <th>Total volume</th>
+                    <th>Readiness level</th>
+                    <th>Fit for UseCase</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody style="height: 120px">
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Description</td>
+                        <td>@item.Description1</td>
+                        <td>@item.Description2</td>
+                        <td>@item.Description3</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; margin-left: 50%">
+
+        <table style="height:150px;">
+
+            <thead>
+                <tr>
+                    <th colspan="2">ES Tech</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    <th>I</th>
+                    <th>J</th>
+                    <th>K</th>
+                    <th>L</th>
+                    <th>M</th>
+                    <th>N</th>
+                    <th>O</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Renewable energy integrations</td>
+                    <td>Time shifting</td>
+                    <td><span class="dot"></span></td>
+                </tr>
+                <tr>
+                    <td>Timing capacity</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/ts-compiled/dashboardChart.js"></script>
+
 
 

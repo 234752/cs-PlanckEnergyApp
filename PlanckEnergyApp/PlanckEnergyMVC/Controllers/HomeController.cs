@@ -20,7 +20,24 @@ public class HomeController : Controller
 
     public IActionResult Dashboard()
     {
-        return View();
+        //Waiting for the database to be connected.
+        List<RowItem1Model> items = new List<RowItem1Model>
+        {
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3"),
+            new RowItem1Model("test", "test1", "test2", "test3")
+        };
+        return View(items);
+        //return View();
     }
 
     public IActionResult Preparation()
@@ -28,7 +45,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult Sorted()
     {
         return View();
     }
