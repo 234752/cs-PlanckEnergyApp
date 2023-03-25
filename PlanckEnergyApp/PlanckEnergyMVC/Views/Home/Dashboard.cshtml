@@ -132,10 +132,11 @@
 
     </div>
         <div style="float:left; width: 100%; padding: 5px">
-            <button type="button" class="btn btn-primary btn-md" onclick="@Model.FetchTopVolumeMaterials()">
-                Display amount of materials:
-            </button>
-            <input type="number" value="@Model.AmountOfMaterials"/>
+            <a id="amountOfMaterialsLink" href="/Home/Dashboard/10">
+                <input type="button" class="btn btn-primary" value="Show amount of materials:" />
+            </a>
+            <input type="text" id="amountOfMaterialsInputField" value="@Model.AmountOfMaterials" onchange="AmountOfMaterialsInput()"/>
+
         </div>
     </div>
 
@@ -183,6 +184,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/ts-compiled/dashboardChart.js"></script>
+<script src="~/ts-compiled/inputs.js"></script>
+
+
 
 
 

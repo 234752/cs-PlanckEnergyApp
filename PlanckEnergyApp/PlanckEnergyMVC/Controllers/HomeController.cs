@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PlanckEnergyMVC.DAL;
 using PlanckEnergyMVC.Models;
 using System.Diagnostics;
@@ -9,11 +10,13 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly MaterialDbContext _dbContext;
+    private DashboardModel _dashboardModel;
 
     public HomeController(ILogger<HomeController> logger, MaterialDbContext context)
     {
         _logger = logger;
         _dbContext = context;
+        _dashboardModel = new DashboardModel(_dbContext);
     }
 
     public IActionResult Index()
@@ -21,12 +24,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Dashboard()
+    public async Task<IActionResult> Dashboard(int? id)
     {
-        var dashboardModel = new DashboardModel(_dbContext);
-        dashboardModel.AmountOfMaterials = 10;
-        await dashboardModel.FetchTopVolumeMaterials();
-        return View(dashboardModel);
+        if (id == null) { _dashboardModel.AmountOfMaterials = 10; }
+        else { _dashboardModel.AmountOfMaterials = (int)id; }
+        await _dashboardModel.FetchTopVolumeMaterials();
+        return View(_dashboardModel);
     }
 
     public IActionResult Preparation()

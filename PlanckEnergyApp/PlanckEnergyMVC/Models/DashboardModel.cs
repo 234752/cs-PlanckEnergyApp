@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PlanckEnergyMVC.DAL;
 
 namespace PlanckEnergyMVC.Models;
@@ -24,10 +25,9 @@ public class DashboardModel
         _dbContext = dbContext;
     }
 
-    internal async Task FetchTopVolumeMaterials()
+    public async Task FetchTopVolumeMaterials()
     {
         _topVolumeMaterials = new List<Material>();
         _topVolumeMaterials = await _dbContext.Materials.OrderByDescending(m => Convert.ToDecimal(m._cell_volume)).Take(_amountOfMaterials).ToListAsync();
-        _amountOfMaterials++;
     }
 }
