@@ -24,10 +24,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Dashboard(int? id)
+    public async Task<IActionResult> Dashboard(int id)
     {
-        if (id == null) { _dashboardModel.AmountOfMaterials = 10; }
-        else { _dashboardModel.AmountOfMaterials = (int)id; }
+        _dashboardModel.AmountOfMaterials = id;
         await _dashboardModel.FetchTopVolumeMaterials();
         return View(_dashboardModel);
     }

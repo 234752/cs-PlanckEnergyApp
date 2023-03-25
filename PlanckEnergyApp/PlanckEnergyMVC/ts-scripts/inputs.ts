@@ -5,8 +5,6 @@
 
     let link = document.getElementById("amountOfMaterialsLink") as HTMLElement;
 
-    let url = "Dashboard/" + amount;
-
-    link.setAttribute("href", url)
+    link.setAttribute("href", amount)
 
 }
