@@ -91,7 +91,8 @@
 
     <div style="clear:both;"></div>
 
-    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; float:left;">
+    <div style="float:left; width: 40%">
+    <div style="border: 1px solid #000; height: 150px; width: 100%; margin-top:5%; overflow:auto; float:left;">
 
         <table style="height:150px;">
 
@@ -127,7 +128,15 @@
             </tbody>
 
         </table>
+        
 
+    </div>
+        <div style="float:left; width: 100%; padding: 5px">
+            <button type="button" class="btn btn-primary btn-md" onclick="@Model.FetchTopVolumeMaterials()">
+                Display amount of materials:
+            </button>
+            <input type="number" value="@Model.AmountOfMaterials"/>
+        </div>
     </div>
 
     <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; margin-left: 50%">

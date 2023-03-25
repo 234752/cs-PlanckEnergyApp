@@ -24,6 +24,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Dashboard()
     {
         var dashboardModel = new DashboardModel(_dbContext);
+        dashboardModel.AmountOfMaterials = 10;
         await dashboardModel.FetchTopVolumeMaterials();
         return View(dashboardModel);
     }

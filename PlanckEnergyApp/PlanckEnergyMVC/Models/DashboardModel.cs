@@ -12,6 +12,12 @@ public class DashboardModel
         get { return _topVolumeMaterials; }
         set { _topVolumeMaterials = value; }
     }
+    private int _amountOfMaterials;
+    public int AmountOfMaterials
+    {
+        get { return _amountOfMaterials; }
+        set { _amountOfMaterials = value; }
+    }
 
     public DashboardModel(MaterialDbContext dbContext) 
     { 
@@ -20,6 +26,8 @@ public class DashboardModel
 
     internal async Task FetchTopVolumeMaterials()
     {
-        _topVolumeMaterials = await _dbContext.Materials.OrderByDescending(m => Convert.ToDecimal(m._cell_volume)).Take(10).ToListAsync();
+        _topVolumeMaterials = new List<Material>();
+        _topVolumeMaterials = await _dbContext.Materials.OrderByDescending(m => Convert.ToDecimal(m._cell_volume)).Take(_amountOfMaterials).ToListAsync();
+        _amountOfMaterials++;
     }
 }
