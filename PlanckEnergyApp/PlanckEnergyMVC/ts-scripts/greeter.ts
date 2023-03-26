@@ -16,7 +16,8 @@ interface Person {
 }
 
 function greeter(person: Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+    let message = "Hello, " + person.firstName + " " + person.lastName;
+    return "Welcome to the Planck energy app";
 }
 
 let user = new Student("Fred", "M.", "Smith");
