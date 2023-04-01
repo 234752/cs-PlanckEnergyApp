@@ -10,11 +10,19 @@
 </div>
 <div>
     <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="material name" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary">search</button>
+        
+        <input id="materialSearchInputField" type="search" class="form-control rounded" placeholder="material name" aria-label="Search" aria-describedby="search-addon" onchange="MaterialSearchInput()" />
+        
+        <a id="materialSearchLink" href="/Home/Search/Empty">
+            <input type="button" class="btn btn-outline-primary" value="search"/>
+        </a>
     </div>
     </br>
     <div style="text-align:center">
         @Model.MinedText
     </div>
+
+
 </div>
+
+<script src="~/ts-compiled/materialSearchInput.js"></script>

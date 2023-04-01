@@ -4,4 +4,4 @@ function AmountOfMaterialsInput() {
     var link = document.getElementById("amountOfMaterialsLink");
     link.setAttribute("href", amount);
 }
-//# sourceMappingURL=inputs.js.map
+//# sourceMappingURL=amountOfMaterialsInput.js.map

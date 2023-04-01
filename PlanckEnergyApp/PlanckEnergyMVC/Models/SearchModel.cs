@@ -14,7 +14,7 @@ public class SearchModel
         set { _minedText = value; } 
     }
 
-    public SearchModel(MaterialDbContext dbContext) 
+    public SearchModel(MaterialDbContext dbContext)
     { 
         _dbContext = dbContext;
     }
