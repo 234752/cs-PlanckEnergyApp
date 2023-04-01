@@ -11,12 +11,14 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly MaterialDbContext _dbContext;
     private DashboardModel _dashboardModel;
+    private SortedModel _sortedModel;
 
     public HomeController(ILogger<HomeController> logger, MaterialDbContext context)
     {
         _logger = logger;
         _dbContext = context;
         _dashboardModel = new DashboardModel(_dbContext);
+        _sortedModel = new SortedModel(_dbContext);
     }
 
     public IActionResult Index()
@@ -37,9 +39,11 @@ public class HomeController : Controller
         return View(mat.First());
     }
 
-    public IActionResult Sorted()
+    public async Task<IActionResult> Sorted(int id)
     {
-        return View();
+        _sortedModel.AmountOfMaterials = id;
+        await _sortedModel.FetchTopVolumeMaterials();
+        return View(_sortedModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

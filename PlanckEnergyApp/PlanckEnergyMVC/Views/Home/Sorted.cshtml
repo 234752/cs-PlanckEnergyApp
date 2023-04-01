@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SortedModel
+
+@{
     ViewData["Title"] = "Sorted";
 
 }
@@ -71,22 +73,67 @@
 
 </br>
 
-<div class="row" id="borderimg">
+<div>
+    <div style="border: 1px solid #000; height: 150px; width: 100%; margin-top:5%; overflow:auto;">
+    <table style="height:150px;">
 
-    <div class="flex-column">
-        <img src="https://images.ctfassets.net/pdf29us7flmy/4FaqpZFMenRQoDl0LGqFes/02c40a20ee37917f3e117b9c599f132d/GOLD-6487-CareerGuide-Batch04-Images-GraphCharts-01-Line.png" alt="A random chart" style="width:100%" />
+        <thead>
+
+            <tr>
+
+                <th>Material name</th>
+                <th>Total volume</th>
+                <th>Cell length A</th>
+                <th>Cell length B</th>
+                <th>Cell length C</th>
+                    <th>Total volume</th>
+                    <th>Cell length A</th>
+                    <th>Cell length B</th>
+                    <th>Cell length C</th>
+                    <th>Total volume</th>
+                    <th>Cell length A</th>
+                    <th>Cell length B</th>
+                    <th>Cell length C</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody style="height: 120px">
+
+            @foreach (var item in Model.TopVolumeMaterials)
+            {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>@item._chemical_formula_moiety</td>
+                    <td>@item._symmetry_cell_setting</td>
+                    <td>@item._symmetry_space_group_name_H_M</td>
+                    <td>@item._symmetry_Int_Tables_number</td>
+                    <td>@item._space_group_name_Hall</td>
+                    <td>@item._cell_length_a</td>
+                    <td>@item._cell_length_b</td>
+                    <td>@item._cell_length_c</td>
+                    <td>@item._cell_angle_alpha</td>
+                    <td>@item._cell_angle_beta</td>
+                    <td>@item._cell_angle_gamma</td>
+                    <td>@item._cell_volume</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
     </div>
+    <div style="float:left; width: 100%; padding: 10px">
+        <a id="amountOfMaterialsLink" href="/Home/Dashboard/10">
+            <input type="button" class="btn btn-primary" value="Show amount of materials:" />
+        </a>
+        <input type="text" id="amountOfMaterialsInputField" value="@Model.AmountOfMaterials" onchange="AmountOfMaterialsInput()" />
 
-    <div class="flex-column">
-        <img src="https://images.ctfassets.net/pdf29us7flmy/4FaqpZFMenRQoDl0LGqFes/02c40a20ee37917f3e117b9c599f132d/GOLD-6487-CareerGuide-Batch04-Images-GraphCharts-01-Line.png" alt="A random chart" style="width:100%" />
     </div>
-
-    <div class="flex-column">
-        <img src="https://images.ctfassets.net/pdf29us7flmy/4FaqpZFMenRQoDl0LGqFes/02c40a20ee37917f3e117b9c599f132d/GOLD-6487-CareerGuide-Batch04-Images-GraphCharts-01-Line.png" alt="A random chart" style="width:100%" />
-    </div>
-
-    <div class="flex-column">
-        <img src="https://images.ctfassets.net/pdf29us7flmy/4FaqpZFMenRQoDl0LGqFes/02c40a20ee37917f3e117b9c599f132d/GOLD-6487-CareerGuide-Batch04-Images-GraphCharts-01-Line.png" alt="A random chart" style="width:100%" />
-    </div>
-
 </div>
+
+<script src="~/ts-compiled/inputs.js"></script>
