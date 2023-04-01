@@ -18,6 +18,10 @@ public class SearchModel
     { 
         _dbContext = dbContext;
     }
+    private async Task<string> SearchWeb(string phrase) //mock method, need to implement the actual text mining here
+    {
+        return "sample mined text";
+    }
     public async Task MineText(string id)
     {
         if(id == "Empty")
@@ -25,7 +29,14 @@ public class SearchModel
             _minedText = "";
             return;
         }
-        _minedText = $"sample mined text for material '{id}'";
+        var requestedMaterial = _dbContext.Materials.Where(m => m.Name == id).SingleOrDefault();
+        if(requestedMaterial == null) 
+        {
+            _minedText = $"there is no information in our database about '{id}'";
+            return;
+        }
+        var webResult = await SearchWeb(id);
+        _minedText = $"{webResult} for material '{id}'";
     }
 
 }
