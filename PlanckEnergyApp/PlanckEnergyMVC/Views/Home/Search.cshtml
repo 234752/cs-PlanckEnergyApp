@@ -1,0 +1,20 @@
+﻿@model SearchModel
+
+@{
+    ViewData["Title"] = "Search";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Search for ingrediends and sources</h1>
+</div>
+<div>
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="material name" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">search</button>
+    </div>
+    </br>
+    <div style="text-align:center">
+        @Model.MinedText
+    </div>
+</div>
