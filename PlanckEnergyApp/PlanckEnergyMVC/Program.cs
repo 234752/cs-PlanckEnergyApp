@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using PlanckEnergyMVC.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MaterialDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("planckDB")));
 
 var app = builder.Build();
 

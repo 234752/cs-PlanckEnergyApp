@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PlanckEnergyMVC.DAL;
 using PlanckEnergyMVC.Models;
 using System.Diagnostics;
 
@@ -7,10 +9,18 @@ namespace PlanckEnergyMVC.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MaterialDbContext _dbContext;
+    private DashboardModel _dashboardModel;
+    private SortedModel _sortedModel;
+    private SearchModel _searchModel;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MaterialDbContext context)
     {
         _logger = logger;
+        _dbContext = context;
+        _dashboardModel = new DashboardModel(_dbContext);
+        _sortedModel = new SortedModel(_dbContext);
+        _searchModel = new SearchModel(_dbContext);
     }
 
     public IActionResult Index()
@@ -18,36 +28,30 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Dashboard()
+    public async Task<IActionResult> Dashboard(int id)
     {
-        //Waiting for the database to be connected.
-        List<RowItem1Model> items = new List<RowItem1Model>
-        {
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3"),
-            new RowItem1Model("test", "test1", "test2", "test3")
-        };
-        return View(items);
-        //return View();
+        _dashboardModel.AmountOfMaterials = id;
+        await _dashboardModel.FetchTopVolumeMaterials();
+        return View(_dashboardModel);
     }
 
     public IActionResult Preparation()
     {
-        return View();
+        var mat = _dbContext.Materials.ToList();
+        return View(mat.First());
     }
 
-    public IActionResult Sorted()
+    public async Task<IActionResult> Sorted(int id)
     {
-        return View();
+        _sortedModel.AmountOfMaterials = id;
+        await _sortedModel.FetchTopVolumeMaterials();
+        return View(_sortedModel);
+    }
+
+    public async Task<IActionResult> Search(string id)
+    {
+        await _searchModel.MineText(id);
+        return View(_searchModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

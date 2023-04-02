@@ -1,4 +1,4 @@
-﻿@model List<PlanckEnergyMVC.Models.RowItem1Model>
+﻿@model PlanckEnergyMVC.Models.DashboardModel
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -75,10 +75,10 @@
     <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; float:left">
 
         <ul style="list-style:none; height:150px; max-height:150px; margin:0; overflow:auto; padding:0;">
-            @foreach (var item in Model)
+            @foreach (var item in Model.TopVolumeMaterials)
             {
                 <li style="text-align:left">
-                    @item.Description
+                    @item.Name
                 </li>
             }
         </ul>
@@ -91,7 +91,8 @@
 
     <div style="clear:both;"></div>
 
-    <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; float:left;">
+    <div style="float:left; width: 40%">
+    <div style="border: 1px solid #000; height: 150px; width: 100%; margin-top:5%; overflow:auto; float:left;">
 
         <table style="height:150px;">
 
@@ -101,8 +102,9 @@
 
                     <th>Material name</th>
                     <th>Total volume</th>
-                    <th>Readiness level</th>
-                    <th>Fit for UseCase</th>
+                    <th>Cell length A</th>
+                    <th>Cell length B</th>
+                    <th>Cell length C</th>
 
                 </tr>
 
@@ -110,14 +112,15 @@
 
             <tbody style="height: 120px">
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.TopVolumeMaterials)
                 {
                     <tr>
 
-                        <td>@item.Description</td>
-                        <td>@item.Description1</td>
-                        <td>@item.Description2</td>
-                        <td>@item.Description3</td>
+                        <td>@item.Name</td>
+                        <td>@item._cell_volume</td>
+                        <td>@item._cell_length_a</td>
+                        <td>@item._cell_length_b</td>
+                        <td>@item._cell_length_c</td>                       
 
                     </tr>
                 }
@@ -125,7 +128,16 @@
             </tbody>
 
         </table>
+        
 
+    </div>
+        <div style="float:left; width: 100%; padding: 10px">
+            <a id="amountOfMaterialsLink" href="/Home/Dashboard/10">
+                <input type="button" class="btn btn-primary" value="Show amount of materials:" />
+            </a>
+            <input type="text" id="amountOfMaterialsInputField" value="@Model.AmountOfMaterials" onchange="AmountOfMaterialsInput()"/>
+
+        </div>
     </div>
 
     <div style="border: 1px solid #000; height: 150px; width: 40%; margin-top:5%; overflow:auto; margin-left: 50%">
@@ -172,6 +184,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/ts-compiled/dashboardChart.js"></script>
+<script src="~/ts-compiled/amountOfMaterialsInput.js"></script>
+
+
 
 
 
