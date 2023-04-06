@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PlanckEnergyMVC.DAL;
 using System.Diagnostics.Metrics;
 using HtmlAgilityPack;
+using System.Web;
 
 namespace PlanckEnergyMVC.Models;
 
@@ -33,7 +34,7 @@ public class SearchModel
         {
             firstParagraph = nodes[1].InnerText.Trim();
         }
-        return firstParagraph;
+        return HttpUtility.HtmlDecode(firstParagraph);
     }
     public async Task MineText(string id)
     {
@@ -49,7 +50,7 @@ public class SearchModel
             return;
         }
         var webResult = await SearchWeb(id);
-        _minedText = $"{webResult} for material '{id}'";
+        _minedText = $"FOR MATERIAL '{id.ToUpper()}': \n\n {webResult}";
     }
 
 }
