@@ -30,8 +30,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\ts-compiled\" />
-  </ItemGroup>
-
 </Project>
