@@ -12,7 +12,8 @@ var Student = /** @class */ (function () {
     return Student;
 }());
 function greeter(person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+    var message = "Hello, " + person.firstName + " " + person.lastName;
+    return "Welcome to the Planck energy app";
 }
 var user = new Student("Fred", "M.", "Smith");
 //# sourceMappingURL=greeter.js.map
