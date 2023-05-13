@@ -17,4 +17,9 @@ public class TopMaterialModel
         get { return _minedManufacturing; }
         set { _minedManufacturing = value; }
     }
+
+    public TopMaterialModel(MaterialDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
 }

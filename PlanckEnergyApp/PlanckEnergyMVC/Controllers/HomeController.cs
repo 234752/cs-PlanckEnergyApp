@@ -13,6 +13,7 @@ public class HomeController : Controller
     private DashboardModel _dashboardModel;
     private SortedModel _sortedModel;
     private SearchModel _searchModel;
+    private TopMaterialModel _topMaterialModel;
 
     public HomeController(ILogger<HomeController> logger, MaterialDbContext context)
     {
@@ -21,6 +22,7 @@ public class HomeController : Controller
         _dashboardModel = new DashboardModel(_dbContext);
         _sortedModel = new SortedModel(_dbContext);
         _searchModel = new SearchModel(_dbContext);
+        _topMaterialModel = new TopMaterialModel(_dbContext);
     }
 
     public IActionResult Index()
@@ -52,6 +54,11 @@ public class HomeController : Controller
     {
         await _searchModel.MineText(id);
         return View(_searchModel);
+    }
+
+    public IActionResult TopMaterial()
+    {
+        return View(_topMaterialModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

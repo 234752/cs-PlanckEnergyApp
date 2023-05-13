@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model TopMaterialModel
+
 @{
+    ViewData["Title"] = "TopMaterial";
+
 }
+
+<div class="text-center">
+    <h1 class="display-4">Search for ingrediends and manufacturing process of UiO-66</h1>
+</div>
+<div>
+    <div class="text-center">
+        INGREDIENTS
+    </div>
+    <div style="text-align:center; white-space:pre-wrap">
+        @Model.MinedIngredients
+    </div>
+
+    <br />
+
+    <div class="text-center">
+        MANUFACTURING PROCESS
+    </div>
+    <div style="text-align:center; white-space:pre-wrap">
+        @Model.MinedManufacturing
+    </div>
+
+
+</div>
