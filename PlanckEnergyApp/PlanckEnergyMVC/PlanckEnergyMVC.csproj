@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\TopMaterial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ts-scripts\greeter.ts" />
   </ItemGroup>
 
@@ -28,6 +32,18 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\TopMaterial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\TopMaterial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\TopMaterial.cshtml" />
   </ItemGroup>
 
 </Project>
