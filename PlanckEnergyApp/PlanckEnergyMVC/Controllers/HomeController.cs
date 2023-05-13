@@ -59,6 +59,7 @@ public class HomeController : Controller
     public async Task<IActionResult> TopMaterial()
     {
         await _topMaterialModel.MineIngredients();
+        await _topMaterialModel.MineManufacturing();
         return View(_topMaterialModel);
     }
 

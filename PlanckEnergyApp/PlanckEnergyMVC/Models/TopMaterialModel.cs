@@ -40,4 +40,19 @@ public class TopMaterialModel
         _minedIngredients = materialsParagraph.InnerText;
 
     }
+
+    public async Task MineManufacturing()
+    {
+        var url = "https://www.sciencedirect.com/science/article/abs/pii/S138358662100188X";
+
+        var web = new HtmlWeb();
+        var doc = web.Load(url);
+
+        var paragraphs = doc.DocumentNode.SelectNodes("//p");
+
+        var manufacturingParagraph = paragraphs.Where(p => p.InnerText.Contains("UiO-66 was fabricated")).ToList().First();
+
+        _minedManufacturing = manufacturingParagraph.InnerText;
+
+    }
 }
