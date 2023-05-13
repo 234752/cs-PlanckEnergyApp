@@ -20,6 +20,18 @@ public class TopMaterialModel
         get { return _minedManufacturing; }
         set { _minedManufacturing = value; }
     }
+    private string _ingredientsLink;
+    public string IngredientsLink
+    {
+        get { return _ingredientsLink; }
+        set { _ingredientsLink = value;}
+    }
+    private string _manufacturingLink;
+    public string ManufacturingLink
+    {
+        get { return _manufacturingLink; }
+        set { _manufacturingLink = value; }
+    }
 
     public TopMaterialModel(MaterialDbContext dbContext)
     {
@@ -38,6 +50,7 @@ public class TopMaterialModel
         var materialsParagraph = paragraphs.Where(p => p.InnerText.Contains("Zirconium (IV) chloride")).ToList().First();
 
         _minedIngredients = materialsParagraph.InnerText;
+        _ingredientsLink = url;
 
     }
 
@@ -53,6 +66,7 @@ public class TopMaterialModel
         var manufacturingParagraph = paragraphs.Where(p => p.InnerText.Contains("UiO-66 was fabricated")).ToList().First();
 
         _minedManufacturing = manufacturingParagraph.InnerText;
+        _manufacturingLink = url;
 
     }
 }
