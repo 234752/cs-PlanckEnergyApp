@@ -56,8 +56,9 @@ public class HomeController : Controller
         return View(_searchModel);
     }
 
-    public IActionResult TopMaterial()
+    public async Task<IActionResult> TopMaterial()
     {
+        await _topMaterialModel.MineIngredients();
         return View(_topMaterialModel);
     }
 
