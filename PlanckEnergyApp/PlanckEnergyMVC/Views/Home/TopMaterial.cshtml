@@ -1,0 +1,32 @@
+﻿@model TopMaterialModel
+
+@{
+    ViewData["Title"] = "TopMaterial";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Search for ingrediends and manufacturing process of UiO-66</h1>
+</div>
+<div>
+    <div class="text-center">
+        INGREDIENTS
+    </div>
+    <div style="text-align:center; white-space:pre-wrap">
+        @Model.MinedIngredients
+        <a href="@Model.IngredientsLink">Source and full article</a>
+    </div>
+    
+
+    <br />
+
+    <div class="text-center">
+        MANUFACTURING PROCESS
+    </div>
+    <div style="text-align:center; white-space:pre-wrap">
+        @Model.MinedManufacturing
+        <a href="@Model.ManufacturingLink">Source and full article</a>
+    </div>
+
+
+</div>
